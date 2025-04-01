@@ -64,28 +64,32 @@
             background-color: #ecf0f1;
             color: #34495e;
             border: 1px solid #ddd;
+            font-weight: 550;
         }
 
         #pasteBtn:hover {
             background-color: #dfe6e9;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
         }
 
         #convertBtn {
             background-color: #ecf0f1;
             color: #34495e;
             border: 1px solid #ddd;
+            font-weight: 550;
         }
 
         #convertBtn:hover {
             background-color: #dfe6e9;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
         }
 
         #copyBtn {
             background-color: green;
             color: white;
-            font-weight: 500;
             border: none;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 550;
         }
 
         #copyBtn:hover {
@@ -98,6 +102,7 @@
             color: white;
             border: none;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 550;
         }
 
         #clearBtn:hover {
@@ -136,6 +141,54 @@
         .checkbox input {
             margin-right: 8px;
         }
+
+        details {
+            padding: 0 1rem 0 1rem;
+            background-color: #ecf0f1;
+            border: 1px solid #ddd;
+            color: #34495e;
+            border-radius: 0.5rem;
+            margin: 0 auto;
+        }
+
+        details:last-child {
+            margin-bottom: 0;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary {
+            display: block;
+            padding: 1rem 1rem 1rem 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+        }
+
+        summary::before,
+        summary::after {
+            content: "";
+            position: absolute;
+            width: 1rem;
+            height: 2px;
+            background-color: #222;
+            right: 1rem;
+            top: 1.7rem;
+        }
+
+        summary::after {
+            transform: rotateZ(90deg);
+        }
+
+        details p {
+            padding-bottom: 2rem;
+        }
+
+        details[open] summary::after {
+            display: none;
+        }
     </style>
 </head>
 
@@ -148,18 +201,28 @@
         </div>
         <div class="text-area-container">
             <h2>변환 결과</h2>
-            <textarea id="outputText" placeholder="복사하기 버튼을 누르거나, 변환된 텍스트를 드래그해서 복사하세요.(Ctrl + C)" readonly></textarea>
+            <textarea id="outputText" placeholder="복사하기 버튼을 누르거나, 변환된 텍스트를 드래그해서 복사하세요.(Ctrl + C)"></textarea>
         </div>
     </div>
     <br />
     <label class="checkbox"> <input type="checkbox" id="isAuto" checked>자동 변환</label>
     <div class="button-group">
-        <button id="pasteBtn">붙여넣기<br/><span style="font-size: 12px;">(왼쪽)</span></button>
-        <button id="convertBtn">변환 실행<br/><span style="font-size: 12px;">(왼쪽→오른쪽)</span></button>
-        <button id="copyBtn">복사<br/><span style="font-size: 12px;">(오른쪽)</span></button>
-        <button id="clearBtn">모두 삭제<br/><span style="font-size: 12px;">(왼쪽,오른쪽)</span></button>       
+        <button id="pasteBtn">붙여넣기<br /><span style="font-size: 12px;">(왼쪽)</span></button>
+        <button id="convertBtn">변환 실행<br /><span style="font-size: 12px;">(왼쪽→오른쪽)</span></button>
+        <button id="copyBtn">복사<br /><span style="font-size: 12px;">(오른쪽)</span></button>
+        <button id="clearBtn">모두 삭제<br /><span style="font-size: 12px;">(왼쪽,오른쪽)</span></button>
     </div>
-    <p>※ "붙여넣기" 기능은 메세지가 나타날 수 있습니다. 최초 1회 허용을 눌러주시거나, 'Ctrl+V'를 사용해주세요.</p>
+    <p>※ "붙여넣기" 기능은 보안 관련 메세지가 나타날 수 있습니다. 최초 1회 허용을 눌러주시거나, 'Ctrl+V'를 사용해주세요.</p>
+    <div class="update-log">
+        <details>
+            <summary>업데이트 내역</summary>
+            <ul>
+                <li><span class="version" style="font-weight:bold;">(v3.0)</span> 자동변환 옵션 추가, 버튼 스타일 변경, 업데이트 내역 리스트 추가</li>
+                <li><span class="version" style="font-weight:bold;">(v2.0)</span> 이름 변경(빈 줄 제거), 도메인 변경, 버튼 추가(붙여넣기, 복사), 사용자 알림메세지 추가</li>
+                <li><span class="version" style="font-weight:bold;">(v1.0)</span> 텍스트 변환기 최초 개발, 텍스트 변환&모두삭제 버튼 제공</li>
+            </ul>
+        </details>
+    </div>
 
     <div id="notification" class="notification"></div>
 
