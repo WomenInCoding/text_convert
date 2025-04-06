@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 클리너</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        textarea {
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        #inputText, #outputText {
+            height: 100px; /* 5줄 높이 고정 */
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            white-space: pre-wrap;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>텍스트 클리너</h1>
+    <p>아래에 텍스트를 붙여넣어 불필요한 줄바꿈과 특수문자를 제거하세요:</p>
+    <button onclick="pasteAndClean('inputText', 'outputText')">1번째 칸 붙여넣기 및 정리</button>
+    <textarea id="inputText" placeholder="여기에 텍스트를 붙여넣으세요..."></textarea>
+    <br>
+    <button onclick="pasteAndClean('outputText', 'outputText')">2번째 칸 후 붙여넣기 및 정리</button>
+    <textarea id="outputText" class="output"></textarea>
+
+    <script>
+        function cleanText(input) {
+            // 불필요한 줄바꿈(연속된 줄바꿈)과 특수문자 제거
+            return input.replace(/[\r\n]{2,}/g, '\n').replace(/[!@#$%^&*()_+=\[\]{};:'"\\|,.<>/?~`]/g, '');
+        }
+        function pasteAndClean(inputId, outputId) {
+            navigator.clipboard.readText().then(function(text) {
+                var cleanedText = cleanText(text);
+                document.getElementById(inputId).value = cleanedText;
+                document.getElementById(outputId).textContent = cleanedText;
+            }).catch(function(err) {
+                console.error('Failed to read clipboard contents: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
