@@ -48,23 +48,21 @@ textarea {
     gap: 10px;
     margin-top: 10px;
     margin-bottom: 16px;
-    font-weight: 550;
-}
-
-.button-group span {
-    font-size: 12px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 10px 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     transition: background-color 0.3s;
 }
 
 #pasteBtn {
+    width: 120px;
     height: 80px;
     background-color: #ecf0f1;
     color: #34495e;
@@ -77,6 +75,7 @@ button {
 }
 
 #convertBtn {
+    width: 120px;
     height: 80px;
     background-color: #ecf0f1;
     color: #34495e;
@@ -93,6 +92,7 @@ button {
 }
 
 #copyBtn {
+    width: 120px;
     height: 80px;
     background-color: green;
     color: white;
@@ -106,6 +106,7 @@ button {
 }
 
 #clearBtn {
+    width: 150px;
     height: 80px;
     background-color: #e74c3c;
     color: white;
@@ -198,18 +199,18 @@ details[open] summary::after {
     display: none;
 }
 
-#codingHelper {
+#Apps {
     margin-left: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 380px;
+    width: 160px;
     height: 80px;
     background-color: #4ec6f8;
     color: black;
     text-decoration: none;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -217,12 +218,12 @@ details[open] summary::after {
     box-sizing: border-box;
 }
 
-#codingHelper:hover {
+#Apps:hover {
     background-color: #1291C7;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
-#codingHelper span {
+#Apps span {
     font-size: 12px;
     color: #333;
 }
